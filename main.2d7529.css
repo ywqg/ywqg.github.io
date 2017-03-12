@@ -164,7 +164,7 @@ i { font-style: normal }
 .icon-zhihu:before { content: "\E61B" }
 .icon-linkedin:before { content: "\E6D4" }
 .icon-google:before { content: "\E635" }
-body, button, input, select, textarea { color: #1a1a1a; font-family: lucida grande, lucida sans unicode, lucida, helvetica, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif; font-size: 16px; font-size: 1rem; line-height: 1.75 }
+body, button, input, select, textarea { color: #1a1a1a; font-family: lucida grande, lucida sans unicode, lucida, helvetica, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif; font-size: 14px; font-size: 0.8rem; line-height: 1.75 }
 body { overflow-y: hidden; background: #eaeaea }
 #container, body, html { height: 100%; overflow-x: hidden; overflow-y: auto }
 #mobile-nav { display: none }
@@ -524,7 +524,7 @@ pre .css~* .id, pre .id { color: #fd971f }
 	.article-info-index.article-info { min-height: 40px; padding-top: 10px; margin: 0; border-top: 1px solid #ddd }
 	.article-info-post.article-info { margin: 0; padding-top: 10px; border: none }
 	#viewer-box .viewer-box-l { font-size: 14px }
-	.article { padding: 10px; margin: 10px 0; border: 0; font-size: 16px; color: #555 }
+	.article { padding: 10px; margin: 10px 0; border: 0; font-size: 14px; color: #555 }
 	.article .article-more-link { margin: 0 }
 	.article .article-entry { padding: 10px 0 30px }
 	.article .article-inner h1.article-title, .article .article-title { font-size: 18px; font-weight: 300; display: block; margin: 0 }

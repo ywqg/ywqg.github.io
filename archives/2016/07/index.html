@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>web</title>
+  <title>Archives: 2016/7 | web</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="web">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/2016/07/index.html">
 <meta property="og:site_name" content="web">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="web">
@@ -151,145 +151,47 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/01/闭包/">闭包</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/01/闭包/" class="archive-article-date">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/07/01/闭包/" class="archive-article-date">
   	<time datetime="2016-07-01T11:33:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.闭包的概念<br>  js中的闭包，指的就是可以访问独立的数据的函数。<br>2使用闭包，要解决的问题<br>  在函数的外部使用，函数内部定义的数据<br>3闭包的基本模型<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>  <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> str = <span class="string">""</span>;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">inner</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> str;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> inner;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> f = outer();</div><div class="line"><span class="keyword">var</span> f1 = outer();</div></pre></td></tr></table></figure></p>
-<p>4.如何获取和设置同一个数据</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//如何设置和获取同一个数据    使用闭包</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> sum = <span class="number">10</span>;</div><div class="line">        </div><div class="line">        <span class="keyword">return</span> &#123;</div><div class="line">            <span class="attr">get</span>:  <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">return</span> sum;</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">set</span>: <span class="function"><span class="keyword">function</span> <span class="title">set</span>(<span class="params">value</span>)</span>&#123;</div><div class="line">                        sum = value;</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> obj = outer(); <span class="comment">//利用返回一个对象</span></div></pre></td></tr></table></figure>
-<p>5.闭包的原理<br>  上级作用域无法访问下级作用域中的变量<br>  但是下级作用域可以访问上级作用域中变量<br>6闭包的作用：<br>  1.闭包可以用来保护数据<br>    <em>平时如果将数据直接定义在全局，那么将会对数据失去控制权。
-    </em>使用闭包可以讲数据保护起来，外界想修改数据，必须通过指定的取渠道。这些渠道，就是一些函数，只有通*过这些函数才能对数据进行修改，而且可以在这些函数中增加一些校验逻辑，以保证数据的合理性，以及安全性。<br>  2.就是个函数一个私有的变量</p>
-<p>7.注意事项<br>  闭包是不推荐使用的，因为在闭包的函数，在函数调用完成后，不会释放空间，会造成性能问题。</p>
-<p>注意：<br>    1.使用对象也可以保护变量。<br>    2.使用闭包也可以保护变量<br>    各种权威资料中，都说闭包存在性能问题。就是因为闭包的内存对象，会常驻内存，在成资源耗损。<br>    闭包也可以使用，但是不能滥用。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/01/闭包/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-js中的数组的遍历forEach和map与jquery中的map和each的异同" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/06/09/js中的数组的遍历forEach和map与jquery中的map和each的异同/">js中的数组的遍历forEach和map与jquery中的map和each的异同</a>
+      <a class="archive-article-title" href="/2016/07/01/闭包/">闭包</a>
     </h1>
   
 
-        
-        <a href="/2016/06/09/js中的数组的遍历forEach和map与jquery中的map和each的异同/" class="archive-article-date">
-  	<time datetime="2016-06-09T08:01:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-06-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-forEach-和-each方法的异同"><a href="#1-forEach-和-each方法的异同" class="headerlink" title="1. forEach 和 each方法的异同"></a>1. forEach 和 each方法的异同</h2><h3 id="1-js中的forEach方法"><a href="#1-js中的forEach方法" class="headerlink" title="1.js中的forEach方法"></a>1.js中的forEach方法</h3><pre><code>语法： 数组.forEach(functiong(v,i,a){
-    //里面添加需要的逻辑代码
+        <div class="article-info info-on-right">
+          
+          
 
-});
-
-特点： 此方法无返回值  ，并且无法中间跳出循环
-</code></pre><h3 id="2-jquery中的each方法"><a href="#2-jquery中的each方法" class="headerlink" title="2.jquery中的each方法"></a>2.jquery中的each方法</h3><pre><code>jquery中数组是没有这个方法的，但是jquery提供了一个静态方法，而且可以遍历对象
-语法： $.each(arr1,function(i,v){
-    //jquery中提供的each方法中的回调函数中this 表示当前遍历的对象
-    //而且可以通过 return false;  跳出循环
-})
-
-//而且在返回值 = 传入的对象
-
-
-代码示例
-</code></pre><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang="en"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    </div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../../../2-其他资料/jquery/jquery-3.1.0/jquery-3.1.0.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    // ES5 中给出的方法语法</div><div class="line">    var arr1 = [ 1, 2, 3, 4 ]</div><div class="line"></div><div class="line">     var res1 = arr1.forEach( function ( v, i, arr ) &#123;</div><div class="line">         console.log( this );</div><div class="line">     &#125;);</div><div class="line">     console.log( res1 +"lll" );  //无返回值</div><div class="line">    // 能不能中途跳出循环? 不行</div><div class="line"></div><div class="line">    // 在 jq 中数组是没有该方法的, 在 jq 中提供了一个静态方法</div><div class="line">    // var res2 = $.each( arr1, function ( i, v ) &#123;</div><div class="line">    //     console.log( this );</div><div class="line">    //     // return false;</div><div class="line">    // &#125;);</div><div class="line"></div><div class="line">    // console.log( res2 );</div><div class="line"></div><div class="line">    // 在 jq 中提供的 each 方法中的回调函数里 this 表示当前遍历的对象</div><div class="line"></div><div class="line"></div><div class="line">    // jq 中 each 方法还可以遍历对象</div><div class="line">    var o = &#123; name: 'tom', age: 19, gender: '男' &#125;;</div><div class="line"></div><div class="line">    var obj = $.each( o, function ( k, v ) &#123;</div><div class="line">        console.log( k + '====' + v );</div><div class="line">    &#125;);</div><div class="line">    console.log( obj == o ); //返回值即传入值</div><div class="line">    console.log(obj);</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="2-首先比较js中的-map-和-jquery中的map方法的异同"><a href="#2-首先比较js中的-map-和-jquery中的map方法的异同" class="headerlink" title="2.首先比较js中的 map 和 jquery中的map方法的异同"></a>2.首先比较js中的 map 和 jquery中的map方法的异同</h2><p>代码示例<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang="en"&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset="UTF-8"&gt;</div><div class="line">    &lt;title&gt;Document&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;body&gt;</div><div class="line">    </div><div class="line">&lt;/body&gt;</div><div class="line">&lt;script src="../../../2-其他资料/jquery/jquery-3.1.0/jquery-3.1.0.js"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    // map 映射</div><div class="line">    var arr1 = 'abcdefgh'.split( '' );</div><div class="line">     var res = arr1.map(function ( v, i, arr ) &#123;</div><div class="line">         // console.log( arguments );</div><div class="line"></div><div class="line">         // 在数组中提供的 map 方法 必须 返回数据</div><div class="line">         // 如果不反回 即返回 undefiend</div><div class="line"></div><div class="line">     &#125;);</div><div class="line"></div><div class="line">     console.log( res );</div><div class="line"></div><div class="line"></div><div class="line">    // jq 中</div><div class="line">   var  arr2 = [,2,3,4,,5]</div><div class="line">    var res2 = $.map(arr2, function ( v, i ) &#123;  //这个是jquery中的静态方法，是构造函数上含有的方法</div><div class="line">        // return 1;</div><div class="line">        // 在 map 中 this 不再可以被使用, 是 window</div><div class="line">        console.log( this );</div><div class="line"></div><div class="line">        return v;  //如果返回的是null 或者undefined 不会存储</div><div class="line"></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    console.log( res2 );</div><div class="line"></div><div class="line">&lt;/script&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
-<h2 id="3-在jquery中还提供了实例方法-map-each方法"><a href="#3-在jquery中还提供了实例方法-map-each方法" class="headerlink" title="3.在jquery中还提供了实例方法 map each方法"></a>3.在jquery中还提供了实例方法 map each方法</h2><ul>
-<li>jquery对象.map(callback);</li>
-</ul>
-<p>回调函数中的参数：</p>
-<pre><code>callback(index,domElement)    对当前集合中的每个元素调用的函数对象。
-</code></pre><ul>
-<li>jquery对象.each(callback);</li>
-</ul>
-<p>回调函数中的参数：</p>
-<pre><code>function(index,element)
-必需。为每个匹配元素规定运行的函数。
-index - 选择器的 index 位置
-element - 当前的元素（也可使用 &quot;this&quot; 选择器）
-</code></pre>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/06/09/js中的数组的遍历forEach和map与jquery中的map和each的异同/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-
-
-
-
-
-
   
   
+    </div></section>
+  
+
+    
 
 
           </div>
@@ -311,9 +213,9 @@ element - 当前的元素（也可使用 &quot;this&quot; 选择器）
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
